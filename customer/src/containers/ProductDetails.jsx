@@ -167,7 +167,7 @@ export default function ProductDetails() {
       {!loading && product.error ? <div>Error: {product.error}</div> : null}
       {!loading && productDetails && Object.keys(productDetails).length > 0 ? (
         <div className=" box flex flex-col  gap-4">
-          <div className="container w-full justify-center  gap-5">
+          <div className="container w-full justify-center  lg:gap-5 ">
             <div className="imagescontainer">
             <div className="images flex flex-col justify-start gap-3 p-1 pt-0">
   {productDetails &&
@@ -184,7 +184,7 @@ export default function ProductDetails() {
 
             </div>
 
-            <div className="mainimagecontainer">
+            <div className="mainimagecontainer ">
               <div
                 className="main-image"
                 style={{
@@ -196,56 +196,55 @@ export default function ProductDetails() {
               ></div>
             </div>
 
-            <div className="slide visible md:hidden">
-              <Lightbox
-                styles={{
-                  root: {
-                    height: "400px",
-                    "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
-                  },
-                  thumbnailsContainer: {
-                    height: "70px",
-                    "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
-                  },
-                  thumbnailsTrack: {
-                    height: "100px",
-                    "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
-                  },
-                  thumbnail: {
-                    width: "120px",
-                    height: "60px",
-                    "--yarl__thumbnails_thumbnail_background":
-                      "rgba(255, 255, 255)",
-                    "--yarl__thumbnails_thumbnail_active_border_color":
-                      "rgba(0, 0, 0)",
-                      
-                  },
-                  button: {
-                    height: "5px",
-                    "--yarl__slide_description_color": "rgba(0, 0, 0)",
-                  },
-                  slide: { height: "270px", width: "200px" },
-                  
-                }}
-                slides={productDetails.productImage.map((image, index) => ({
-                  src: image,
-                  alt: `image${index}`,
-                  width: 3840,
-                  height: 2560,
-                  srcSet: [
-                    { src: image, width: 640, height: 427 },
-                    { src: image, width: 1200, height: 800 },
-                    { src: image, width: 2048, height: 1365 },
-                    { src: image, width: 3840, height: 2560 },
-                  ],
-                }))}
-                inline={inline}
-                plugins={[Inline, Thumbnails]}
-                thumbnails={{ ref: thumbnailsRef }}
-              />
-            </div>
+            <div className="slide visible lg:hidden pt-6 pb-1">
+  <Lightbox
+    styles={{
+      root: {
+        height: "100%",
+        "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
+      },
+      thumbnailsContainer: {
+        height: "70px",
+        "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
+      },
+      thumbnailsTrack: {
+        height: "100px",
+        "--yarl__color_backdrop": "rgba(255, 255, 255, .8)",
+      },
+      thumbnail: {
+        width: "120px",
+        height: "60px",
+        "--yarl__thumbnails_thumbnail_background": "rgba(255, 255, 255)",
+        "--yarl__thumbnails_thumbnail_active_border_color": "rgba(0, 0, 0)",
+      },
+      button: {
+        height: "5px",
+        "--yarl__slide_description_color": "rgba(0, 0, 0)",
+      },
+      slide: { height: "100%", width: "100%" },
+    }}
+    slides={productDetails.productImage.map((image, index) => ({
+      src: image,
+      alt: `image${index}`,
+      width: 2000,
+      height: 2560,
+      srcSet: [
+        { src: image, width: 640, height: 427 },
+        { src: image, width: 1200, height: 800 },
+        { src: image, width: 2048, height: 1365 },
+        { src: image, width: 3840, height: 2560 },
+      ],
+    }))}
+    inline={inline}
+    plugins={[Inline, Thumbnails]}
+    thumbnails={{ ref: thumbnailsRef }}
+    onSelect={(index) => setSelectedImage(productDetails.productImage[index])} 
+    
+  />
+</div>
 
-            <div className="smallscreenimagecontainer"></div>
+
+            
 
             <div className="product-info flex flex-col gap-10">
               <div class="flex items-center">

@@ -45,7 +45,7 @@ const CartItems = () => {
                   <div className="flex flex-col h-40 w-96 justify-around gap-6">
                     <div className="flex  justify-around items-start gap-3">
                       <div>
-                        <h4 className=" font-Playfair">
+                        <h4 className="font-Playfair ">
                           {product.productName}
                         </h4>
                         <div className="flex flex-row justify-between">

@@ -97,7 +97,7 @@ function CollectionPerCategory() {
               </div>
             ))}
           <div
-            className='w-56 h-16 cursor-pointer green-bg text-white relative  rounded-sm text-xl gap-2 hover:bg-black'
+            className='w-56 h-12 cursor-pointer green-bg text-white flex items-center justify-center rounded-sm text-xl gap-2 hover:bg-black'
             onClick={() => {
               navigate(-1)
             }}
