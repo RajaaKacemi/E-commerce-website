@@ -16,7 +16,7 @@ export const fetchOrders = createAsyncThunk(
     'order/placeOrder',
     async (placedOrder, thunkAPI) => {
       try {
-         console.log()
+        console.log()
         const response = await axios.post(`${process.env.REACT_APP_URL}/orders/`, placedOrder);
         return response.data.data;
       } catch (error) {
